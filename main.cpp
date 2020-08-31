@@ -8,7 +8,7 @@ using fn_t = void(void);
 
 void call_f_in_dll(const char *dll_path)
 {
-    auto dll = dlopen(dll_path, RTLD_LAZY);
+    auto dll = dlmopen(LM_ID_NEWLM, dll_path, RTLD_LAZY);
     assert(dll);
     fn_t *fn = (fn_t *)dlsym(dll, "f");
     assert(fn);
